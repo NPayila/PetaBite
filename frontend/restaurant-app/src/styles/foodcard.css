@@ -1,0 +1,144 @@
+.food-card{
+  width:280px;
+
+  padding:20px;
+
+  border-radius:20px;
+
+  background:rgba(255,255,255,0.05);
+
+  border:1px solid rgba(255,255,255,0.08);
+
+  backdrop-filter:blur(10px);
+
+  transition:0.4s;
+
+  display:flex;
+  flex-direction:column;
+
+  gap:15px;
+}
+
+.food-card:hover{
+  transform:translateY(-10px);
+}
+
+.food-image{
+  width:100%;
+  height:180px;
+
+  border-radius:15px;
+
+  background:#1a1a1a;
+}
+
+.food-card h2{
+  color:white;
+}
+
+.food-card p{
+  color:#bdbdbd;
+}
+
+.food-card button{
+  padding:12px;
+
+  border:none;
+
+  border-radius:10px;
+
+  background:cyan;
+
+  color:black;
+
+  font-weight:bold;
+}
+
+/* MOST SOLD */
+
+.mostSold{
+  border:1px solid cyan;
+
+  box-shadow:
+  0 0 20px rgba(0,255,255,0.3);
+}
+
+/* CHEF SPECIAL */
+
+.chefSpecial{
+  border:1px solid orange;
+
+  box-shadow:
+  0 0 25px rgba(255,165,0,0.35);
+}
+.food-card{
+  position:relative;
+
+  overflow:hidden;
+}
+
+.food-card::before{
+  content:"";
+
+  position:absolute;
+
+  width:200%;
+  height:200%;
+
+  background:
+  linear-gradient(
+    45deg,
+    transparent,
+    rgba(255,255,255,0.05),
+    transparent
+  );
+
+  top:-50%;
+  left:-50%;
+
+  transform:rotate(25deg);
+
+  transition:0.7s;
+}
+
+.food-card:hover::before{
+  left:100%;
+}
+
+.badge{
+  width:fit-content;
+
+  padding:8px 14px;
+
+  border-radius:30px;
+
+  font-size:12px;
+
+  font-weight:bold;
+
+  letter-spacing:1px;
+}
+
+.cyan-badge{
+  background:rgba(0,255,255,0.15);
+
+  color:cyan;
+
+  border:1px solid cyan;
+}
+
+.gold-badge{
+  background:rgba(255,165,0,0.15);
+
+  color:orange;
+
+  border:1px solid orange;
+}
+@media(max-width:768px){
+
+  .food-card{
+    width:100%;
+    max-width:350px;
+  }
+
+}
