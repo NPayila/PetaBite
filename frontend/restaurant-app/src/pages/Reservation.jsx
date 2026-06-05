@@ -1,14 +1,62 @@
 import { useState } from "react";
 import "../styles/reservation.css";
 import tableData from "../data/tableData";
+import { createReservation }
+from "../services/reservationService";
 
 function Reservation() {
+  
 
   const [selectedDate, setSelectedDate] = useState("");
   const [selectedTime, setSelectedTime] = useState("");
   const [guests, setGuests] = useState("");
   const [table, setTable] = useState("");
   const [confirmed, setConfirmed] = useState(false);
+  const handleReservation = async () => {
+
+  if (
+    !selectedDate ||
+    !selectedTime ||
+    !guests ||
+    !table
+  ) {
+
+    alert(
+      "Please complete all selections."
+    );
+
+    return;
+  }
+
+  try {
+
+    await createReservation({
+
+      name: "Nexar",
+
+      date: selectedDate,
+
+      time: selectedTime,
+
+      guests: guests
+
+    });
+
+    setConfirmed(true);
+
+  }
+
+  catch (error) {
+
+    console.error(error);
+
+    alert(
+      "Failed to create reservation."
+    );
+
+  }
+
+};
 
   
 
@@ -143,13 +191,12 @@ function Reservation() {
           <p>Table: {table}</p>
 
         </div>
-
         <button
         className="confirm-btn"
-        onClick={() => setConfirmed(true)}
-        >
-        Confirm Reservation
-        </button>
+        onClick={handleReservation}
+        >Confirm Reservation</button>
+
+
         {
   confirmed && (
 
