@@ -18,7 +18,8 @@ public class MenuRepository {
                 new MenuItem(
                         1,
                         "Dragon Ramen",
-                        299
+                        299,
+                        "Ramen"
                 )
         );
 
@@ -26,7 +27,8 @@ public class MenuRepository {
                 new MenuItem(
                         2,
                         "Royal Steak",
-                        599
+                        599,
+                        "Steak"
                 )
         );
 
@@ -34,7 +36,17 @@ public class MenuRepository {
                 new MenuItem(
                         3,
                         "Margherita Pizza",
-                        399
+                        399,
+                        "Pizza"
+                )
+        );
+
+        menu.add(
+                new MenuItem(
+                        4,
+                        "Classic Burger",
+                        249,
+                        "Burger"
                 )
         );
 

@@ -1,15 +1,46 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 import "../styles/menu.css"
 
 import FoodCard from "../components/FoodCard"
 
-import foodItems from "../data/foodData"
+import { getMenu }
+from "../services/menuService"
 
 function Menu({ addToCart }) {
+  const [foodItems, setFoodItems] =
+  useState([])
 
   const [selectedCategory, setSelectedCategory] = useState("All")
   const [searchTerm, setSearchTerm] = useState("")
+  useEffect(() => {
+
+  const fetchMenu =
+    async () => {
+
+      try {
+
+        const data =
+          await getMenu()
+
+        setFoodItems(data)
+
+      }
+
+      catch(error) {
+
+        console.error(
+          "Error loading menu:",
+          error
+        )
+
+      }
+
+    }
+
+  fetchMenu()
+
+}, [])
 
   const filteredItems = foodItems.filter((item) => {
 
@@ -18,7 +49,7 @@ function Menu({ addToCart }) {
     item.category === selectedCategory
 
   const matchesSearch =
-    item.title
+    item.name
       .toLowerCase()
       .includes(searchTerm.toLowerCase())
 
@@ -84,7 +115,7 @@ function Menu({ addToCart }) {
             <FoodCard
             key={item.id}
             id={item.id}
-            title={item.title}
+            title={item.name}
            price={item.price}
             type={item.type}
             addToCart={addToCart}

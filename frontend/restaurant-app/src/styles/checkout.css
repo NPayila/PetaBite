@@ -1,0 +1,38 @@
+.checkout-page{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:#050505;
+}
+
+.checkout-container{
+  width:500px;
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+  padding:40px;
+  border-radius:20px;
+  background:#111;
+}
+
+.checkout-container h1{
+  color:white;
+}
+
+.checkout-container input,
+.checkout-container select{
+  padding:15px;
+  border-radius:10px;
+  border:none;
+  background:#1a1a1a;
+  color:white;
+}
+
+.checkout-container button{
+  padding:15px;
+  border:none;
+  border-radius:10px;
+  background:cyan;
+  font-weight:bold;
+}

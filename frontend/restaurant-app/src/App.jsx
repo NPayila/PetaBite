@@ -9,6 +9,7 @@ import Register from "./pages/Register"
 import Menu from "./pages/Menu"
 import Cart from "./pages/Cart"
 import Reservation from "./pages/Reservation"
+import Checkout from "./pages/Checkout";
 
 function App() {
 
@@ -121,8 +122,13 @@ function App() {
             />
           }
         />
+         <Route
+         path="/checkout"
+         element={<Checkout />}
+        />
 
       </Routes>
+          
 
     </BrowserRouter>
 

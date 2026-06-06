@@ -1,13 +1,14 @@
 import "../styles/cart.css"
-
+import { useNavigate } from "react-router-dom";
 function Cart({
   cartItems,
   addToCart,
   decreaseQuantity
 }) {
 
+  const navigate = useNavigate();
   const totalPrice = cartItems.reduce(
-
+   
     (total, item) =>
 
       total + (item.price * item.quantity),
@@ -101,9 +102,13 @@ function Cart({
 
           <p>Total Price: ₹{totalPrice}</p>
 
-          <button>
+          <button
+           onClick={() =>
+           navigate("/checkout")
+          }
+            >
             Proceed To Checkout
-          </button>
+           </button>
 
         </div>
 
