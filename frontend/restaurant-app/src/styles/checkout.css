@@ -36,3 +36,24 @@
   background:cyan;
   font-weight:bold;
 }
+.confirmation-box{
+
+  text-align:center;
+
+  color:white;
+
+}
+
+.confirmation-box h1{
+
+  color:cyan;
+
+  margin-bottom:20px;
+
+}
+
+.confirmation-box p{
+
+  margin:10px 0;
+
+}

@@ -5,15 +5,17 @@ public class Reservation {
     private String name;
     private String date;
     private String time;
+    private String table;
     private int guests;
 
     public Reservation() {
     }
 
-    public Reservation(String name, String date, String time, int guests) {
+    public Reservation(String name, String date, String time, String table, int guests) {
         this.name = name;
         this.date = date;
         this.time = time;
+        this.table = table;
         this.guests = guests;
     }
 
@@ -43,6 +45,12 @@ public class Reservation {
 
     public int getGuests() {
         return guests;
+    }
+    public void setTable(String table) {
+        this.table = table;
+    }
+    public String getTable() {
+        return table;
     }
 
     public void setGuests(int guests) {

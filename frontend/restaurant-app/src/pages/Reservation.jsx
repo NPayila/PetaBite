@@ -38,7 +38,10 @@ function Reservation() {
 
       time: selectedTime,
 
+      table: table,
+
       guests: guests
+      
 
     });
 
