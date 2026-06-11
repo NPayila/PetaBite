@@ -1,6 +1,8 @@
-import { useState } from "react";
 import "../styles/reservation.css";
-import tableData from "../data/tableData";
+import { useState, useEffect } from "react";
+
+import { getTables }
+from "../services/tableService";
 import { createReservation }
 from "../services/reservationService";
 
@@ -11,7 +13,36 @@ function Reservation() {
   const [selectedTime, setSelectedTime] = useState("");
   const [guests, setGuests] = useState("");
   const [table, setTable] = useState("");
+  const [tableData,setTableData] =useState([]);
   const [confirmed, setConfirmed] = useState(false);
+  useEffect(() => {
+
+  const fetchTables =
+    async () => {
+
+      try {
+
+        const data =
+          await getTables();
+
+        setTableData(data);
+
+      }
+
+      catch(error) {
+
+        console.error(
+          "Failed to load tables",
+          error
+        );
+
+      }
+
+    };
+
+  fetchTables();
+
+}, []);
   const handleReservation = async () => {
 
   if (
@@ -158,21 +189,21 @@ function Reservation() {
 
           <div className="table-grid">
 
-            {tableData.map(tableData => (
+            {tableData.map(tableItem => (
 
               <button
-                key={tableData.id}
-                disabled={!tableData.available}
+                key={tableItem.id}
+                disabled={!tableItem.available}
                 className={
-                  table === tableData.id
+                  table === tableItem.id
                     ? "table selected"
                     : "table"
                 }
                 onClick={() =>
-                  setTable(tableData.id)
+                  setTable(tableItem.id)
                 }
               >
-                {tableData.id}
+                {tableItem.id}
               </button>
 
             ))}
